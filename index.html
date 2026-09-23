@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>KAIZER — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--paper:#FAF6EE;--cream:#FFFEEB;--ink:#111116;--red:#E23636;--gold:#FFD000;--cyan:#00D2F0;--mute:#5b403d;--text:#111116;--card:#fff;--line:#111116;--sh:#111116;--tsh:#111116;--hdbg:#FBF8EE;--dot:#d5cbbe;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:120px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);background-image:radial-gradient(var(--dot) 1.5px,transparent 1.5px);background-size:16px 16px;color:var(--text);font:500 16px/1.6 "Space Grotesk",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3,.bb{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;letter-spacing:.04em;margin:0;line-height:.95}
+.mo{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:700}
+a{color:inherit}
+/* header */
+.hd{position:sticky;top:0;z-index:50;background:var(--hdbg);border-bottom:4px solid var(--line);box-shadow:0 4px 0 var(--sh)}
+.rib{color:var(--ink);display:flex;justify-content:space-between;gap:10px;background:var(--gold);border-bottom:2px solid var(--line);padding:4px 16px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap;overflow:hidden}
+.rib b{background:var(--red);color:#fff;border:1px solid var(--line);padding:0 6px;margin-right:8px}
+.bar{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+.brand{background:var(--red);color:#fff;border:3px solid var(--line);box-shadow:3px 3px 0 var(--sh);padding:4px 12px 2px;font:400 26px "Bebas Neue",Impact,sans-serif;letter-spacing:.1em;text-decoration:none;flex:none}
+nav{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 6px 6px 0}
+nav a{font:400 20px "Bebas Neue",Impact,sans-serif;letter-spacing:.05em;text-decoration:none;background:var(--card);border:2px solid var(--line);box-shadow:2px 2px 0 var(--sh);padding:2px 12px;white-space:nowrap;transition:transform .12s,box-shadow .12s}
+nav a:hover,nav a.on{background:var(--gold);color:var(--ink);transform:translateY(-2px);box-shadow:3px 4px 0 var(--sh)}
+nav a:focus-visible,.btn:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+/* layout */
+main{max-width:1180px;margin:0 auto;padding:36px 16px 60px;display:flex;flex-direction:column;gap:56px}
+.box{background:var(--card);border:4px solid var(--line);box-shadow:8px 8px 0 var(--sh);padding:24px;position:relative}
+.cr{background:var(--cream)}
+.cap{color:var(--ink);display:inline-block;background:var(--gold);border:3px solid var(--line);box-shadow:4px 4px 0 var(--sh);padding:4px 14px;font:400 22px "Bebas Neue",Impact,sans-serif;letter-spacing:.06em;transform:rotate(-1deg);margin-bottom:16px}
+.chip{display:inline-block;background:var(--card);border:2px solid var(--line);box-shadow:2px 2px 0 var(--sh);padding:2px 10px;font:700 12px "JetBrains Mono",monospace;text-transform:uppercase}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.g12{display:grid;grid-template-columns:repeat(12,1fr);gap:24px}
+.c5{grid-column:span 5}.c7{grid-column:span 7}.c8{grid-column:span 8}.c4{grid-column:span 4}.c12{grid-column:span 12}
+h2.sec{font-size:clamp(38px,6vw,60px);color:var(--ink);background:var(--gold);border:4px solid var(--line);box-shadow:8px 8px 0 var(--sh);padding:14px 20px 10px;margin-bottom:26px}
+h2.sec small{display:block;font:700 12px "JetBrains Mono",monospace;letter-spacing:.06em;background:var(--red);color:#fff;border:1px solid var(--line);width:max-content;padding:1px 8px;margin-bottom:8px}
+/* hero */
+.cvr{background:var(--cream);padding:10px;display:flex;flex-direction:column;gap:10px}
+.cvh{display:flex;justify-content:space-between;align-items:center;background:var(--red);color:#fff;border:2px solid var(--line);padding:6px 10px;font:400 24px "Bebas Neue",Impact,sans-serif;letter-spacing:.06em}
+.cvh em{font-style:normal;color:var(--gold)}
+.logo{text-align:center;background:var(--card);border:2px solid var(--line);box-shadow:3px 3px 0 var(--sh);padding:8px}
+.logo h1{font-size:clamp(56px,9vw,86px);color:var(--red);text-shadow:3px 3px 0 var(--tsh)}
+.logo h1 i{font-style:normal;color:#1740c9}
+.logo span{font:400 24px "Bebas Neue",Impact,sans-serif;letter-spacing:.06em}
+.art{background:#0A0D14;background-image:radial-gradient(#00D2F0 1px,transparent 1px),radial-gradient(#E23636 1px,transparent 1px);background-size:14px 14px;background-position:0 0,7px 7px;border:4px solid var(--line);min-height:330px;display:flex;flex-direction:column;justify-content:space-between;padding:10px;color:#fff;overflow:hidden;position:relative}
+.art svg{width:100%;max-width:290px;margin:auto;display:block;filter:drop-shadow(0 0 8px #00D2F0)}
+.art .t{align-self:flex-start;background:var(--gold);color:var(--ink);border:2px solid var(--line);padding:0 10px;font:400 18px "Bebas Neue",Impact,sans-serif;transform:rotate(-2deg)}
+.art .ides{display:flex;flex-wrap:wrap;gap:5px;font:700 10px "JetBrains Mono",monospace}
+.art .ides span{border:1px solid var(--cyan);color:var(--cyan);padding:0 6px;background:#111116}
+.bcode{height:34px;width:96px;background:var(--card);border:2px solid var(--line);background-image:repeating-linear-gradient(90deg,var(--ink) 0 2px,#fff 2px 4px,var(--ink) 4px 5px,#fff 5px 8px)}
+.cvf{display:flex;justify-content:space-between;align-items:center;font-size:11px;border-top:2px solid var(--line);padding-top:6px;text-transform:uppercase}
+.cvf b{background:var(--ink);color:var(--gold);padding:1px 8px}
+h2.nm{font-size:clamp(56px,9vw,96px);color:var(--red);text-shadow:3px 3px 0 var(--tsh);margin-bottom:12px}
+.bub{position:relative;background:var(--cream);border:3px solid var(--line);box-shadow:4px 4px 0 var(--sh);padding:16px 18px;margin:18px 0 30px;font-size:18px;font-weight:500}
+.bub::after{content:"";position:absolute;left:32px;bottom:-15px;border:14px solid transparent;border-bottom:0;border-top:14px solid var(--line)}
+.bub::before{content:"";position:absolute;left:35px;bottom:-9px;border:11px solid transparent;border-bottom:0;border-top:11px solid var(--cream);z-index:1}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.btn{font:400 26px "Bebas Neue",Impact,sans-serif;letter-spacing:.06em;text-decoration:none;border:3px solid var(--line);box-shadow:5px 5px 0 var(--sh);padding:6px 22px 4px;background:var(--red);color:#fff;transition:transform .12s,box-shadow .12s;cursor:pointer}
+.btn.y{background:var(--gold);color:var(--ink)}
+.btn:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--sh)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+.st{background:var(--cream);border:4px solid var(--line);box-shadow:6px 6px 0 var(--sh);text-align:center;padding:10px}
+.st div{font:400 20px "Bebas Neue",Impact,sans-serif;border:2px solid var(--line);background:var(--red);color:#fff;margin-bottom:6px;letter-spacing:.05em}
+.st:nth-child(2) div{background:var(--cyan);color:var(--ink)}.st:nth-child(3) div{background:var(--gold);color:var(--ink)}
+.st b{display:block;font:400 54px/1 "Bebas Neue",Impact,sans-serif}
+.st span{font:700 11px "JetBrains Mono",monospace;text-transform:uppercase;color:var(--mute)}
+.sfx{margin-top:20px;display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--card);border:3px solid var(--line);box-shadow:4px 4px 0 var(--sh);padding:10px 14px;font-size:12px;text-transform:uppercase}
+.sfx b{font:400 34px "Bebas Neue",Impact,sans-serif;color:var(--red);transform:rotate(-3deg)}.sfx b+span+b{color:#008093;transform:rotate(3deg)}
+/* power grid */
+.row{border:2px solid var(--line);background:var(--paper);box-shadow:3px 3px 0 var(--sh);padding:12px;margin-bottom:16px}
+.row .h{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:8px}
+.row .h span:first-child{font:400 24px "Bebas Neue",Impact,sans-serif;letter-spacing:.04em}
+.tag{color:#fff;background:var(--red);border:1px solid var(--line);padding:1px 8px;font:700 12px "JetBrains Mono",monospace}
+.seg{display:grid;gap:6px;height:26px;background:var(--card);border:2px solid var(--line);padding:2px}
+.seg i{background:var(--red);border:1px solid var(--line)}.seg i.d{background:#eae7ee;border-style:dashed}.seg.c i{background:var(--cyan)}.seg.y i{background:var(--gold)}.seg i.d{background:#eae7ee}
+.row p{margin:8px 0 0;font-size:14px}
+.stamp{margin-top:20px;background:var(--red);color:#fff;border:3px solid var(--line);box-shadow:4px 4px 0 var(--sh);text-align:center;padding:10px;transform:rotate(1deg)}
+.stamp b{display:block;font:400 26px "Bebas Neue",Impact,sans-serif;letter-spacing:.06em}
+.stamp span{font:700 11px "JetBrains Mono",monospace;color:var(--gold)}
+.lang{display:inline-flex;align-items:center;gap:6px}.lang em{font:700 9px "JetBrains Mono",monospace;font-style:normal;background:var(--gold);border:1px solid var(--line);padding:0 4px}.lang em.n{background:var(--red);color:#fff}
+/* missions */
+.burst{position:absolute;top:-16px;right:-10px;background:var(--red);color:#fff;border:3px solid var(--line);box-shadow:4px 4px 0 var(--sh);padding:4px 14px 2px;font:400 24px "Bebas Neue",Impact,sans-serif;transform:rotate(3deg)}
+.case h3{font-size:clamp(34px,5vw,46px);margin-bottom:10px}
+.ops{background:var(--ink);border:3px solid var(--line);box-shadow:4px 4px 0 var(--sh);padding:10px;margin:16px 0;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ops div{background:#1b1b20;border:1px solid #333;padding:8px;color:#fff}
+.ops small{display:block;font:700 10px "JetBrains Mono",monospace;color:#ffffffa0;text-transform:uppercase}
+.ops b{font:400 26px/1.05 "Bebas Neue",Impact,sans-serif;color:var(--gold);letter-spacing:.04em}.ops div:nth-child(2) b{color:var(--cyan)}.ops div:nth-child(3) b{color:#ff6b6b}
+.big{font:400 clamp(46px,7vw,64px)/.95 "Bebas Neue",Impact,sans-serif;color:var(--red);text-shadow:2px 2px 0 var(--tsh)}
+/* timeline */
+.tl{background:var(--ink);color:#fff;padding:20px 24px;margin-bottom:26px;box-shadow:8px 8px 0 var(--sh);border:4px solid var(--line)}
+.tl h2{font-size:clamp(34px,5vw,54px)}
+.tl small{background:var(--gold);color:var(--ink);padding:0 8px;font:700 11px "JetBrains Mono",monospace}
+.ph{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ph .box{display:flex;flex-direction:column;gap:10px}
+.ph .lab{display:inline-block;width:max-content;background:var(--red);color:#fff;border:2px solid var(--line);padding:0 10px;font:400 22px "Bebas Neue",Impact,sans-serif}
+.ph .box:nth-child(2) .lab{background:var(--gold);color:var(--ink)}.ph .box:nth-child(3) .lab{background:var(--cyan);color:var(--ink)}
+.ph h3{font-size:32px}.ph p{margin:0}
+.ms{margin-top:auto;border-top:2px dashed var(--line);background:var(--paper);padding:8px;font-size:13px}
+.ms b{display:block;color:var(--red);font:700 11px "JetBrains Mono",monospace}
+/* contact */
+.lnk{display:flex;align-items:center;gap:10px;background:var(--paper);border:2px solid var(--line);box-shadow:2px 2px 0 var(--sh);padding:8px 12px;margin-bottom:10px;font:700 13px "JetBrains Mono",monospace;text-decoration:none;word-break:break-all;transition:background .12s}
+.lnk:hover{background:var(--gold);color:var(--ink)}
+.frm{display:flex;flex-direction:column;gap:16px}
+.frm label{font:400 22px "Bebas Neue",Impact,sans-serif;letter-spacing:.04em;display:flex;flex-direction:column;gap:4px}
+.frm input,.frm textarea{font:500 15px "JetBrains Mono",monospace;border:3px solid var(--line);box-shadow:3px 3px 0 var(--sh);padding:10px 12px;background:var(--card);color:var(--text);width:100%}
+.toast{color:var(--ink);display:none;background:var(--gold);border:3px solid var(--line);box-shadow:4px 4px 0 var(--sh);padding:10px 14px;font:700 13px "JetBrains Mono",monospace;text-transform:uppercase}
+.toast.on{display:block}.toast b{font:400 26px "Bebas Neue",Impact,sans-serif;color:var(--red);margin-right:8px}
+footer{border-top:4px solid var(--line);background:var(--hdbg);box-shadow:0 -4px 0 var(--sh);padding:24px 16px}
+.ft{max-width:1180px;margin:0 auto;border:4px solid var(--line);background:var(--card);box-shadow:4px 4px 0 var(--sh);padding:14px 18px;display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;font-size:12px;text-transform:uppercase}
+.ft b{background:var(--red);color:#fff;border:2px solid var(--line);padding:2px 14px 0;font:400 26px "Bebas Neue",Impact,sans-serif;letter-spacing:.06em;margin-right:12px}
+@media (max-width:920px){.c5,.c7,.c8,.c4{grid-column:span 12}.ph{grid-template-columns:1fr}.rib span:last-child{display:none}.bar{flex-direction:column;align-items:stretch;gap:8px}}
+@media (max-width:560px){.stats,.ops{grid-template-columns:1fr}.box{padding:18px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+:root[data-theme="dark"]{color-scheme:dark;--paper:#090b14;--cream:#171c33;--card:#10142a;--text:#eaeefc;--line:#e9edff;--sh:#8f1d2c;--tsh:#000;--mute:#a9b1d6;--hdbg:#0d1020;--dot:#1a2040}
+.chip[style*="--gold"],.chip[style*="--cyan"]{color:var(--ink)}
+.bcode{background-color:#fff}
+:root[data-theme="dark"] .seg i.d{background:#2a3050}
+.mode{flex:none;font:400 20px "Bebas Neue",Impact,sans-serif;letter-spacing:.05em;background:var(--ink);color:var(--gold);border:2px solid var(--line);box-shadow:2px 2px 0 var(--sh);padding:2px 14px;cursor:pointer;transition:transform .12s}
+.mode:hover{transform:translateY(-2px)}.mode:focus-visible{outline:3px solid var(--cyan);outline-offset:2px}
+:root[data-theme="dark"] .mode{background:var(--gold);color:var(--ink)}
+#dark,#navdark{display:none}
+:root[data-theme="dark"] #dark{display:block}
+:root[data-theme="dark"] #navdark{display:inline-block}
+html[data-theme="dark"] h2.sec{background:var(--red);color:#fff}
+html[data-theme="dark"] h2.sec small{background:#000;color:var(--gold)}
+.term{background:#04060c;color:#7CFFB2;font-size:13px;line-height:1.7}
+.term div:nth-child(even){color:#dfe6ff;margin-bottom:8px}.term .p{color:var(--cyan)}
+.term .cur{display:inline-block;width:9px;height:15px;background:#7CFFB2;vertical-align:-2px;animation:bl 1s steps(2) infinite}
+@keyframes bl{50%{opacity:0}}
+.rl{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.rl div{background:var(--paper);border:2px solid var(--line);box-shadow:3px 3px 0 var(--sh);padding:10px 12px;font-size:14px}
+.rl b{display:block;font:400 26px "Bebas Neue",Impact,sans-serif;color:var(--red);letter-spacing:.05em}
+@media (max-width:920px){.rl{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.rl{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.term .cur{animation:none}}
+.lt,.dk{}
+:root[data-theme="dark"] .lt{display:none!important}
+:root:not([data-theme="dark"]) .dk{display:none!important}
+</style>
+</head>
+<body>
+<header class="hd">
+  <div class="rib mo lt"><span><b>SPECIAL ORIGIN ISSUE</b>VOL. 1 NO. 1 • 95¢ • KAIZER COMICS</span><span>EXPLORE FAST. SHIP FAST.</span></div>
+  <div class="rib mo dk"><span><b>CLASSIFIED FILE</b>CYBERSECURITY EDITION • 95¢ • VOID COMICS</span><span>LEARN THE ATTACK. BUILD THE DEFENSE.</span></div>
+  <div class="bar">
+    <a class="brand" href="#"><span class="lt">KAIZER</span><span class="dk">VOID</span></a>
+    <nav class="lt"><a href="#origin">ORIGIN</a><a href="#grid">POWER GRID</a><a href="#missions">MISSIONS</a><a href="#canon">CANON</a><a href="#signal">HERO SIGNAL</a></nav>
+    <nav class="dk"><a href="#d-origin">ORIGIN</a><a href="#d-grid">THREAT GRID</a><a href="#d-missions">MISSIONS</a><a href="#d-canon">CANON</a><a href="#signal">HERO SIGNAL</a></nav>
+    <button class="mode" id="mode" type="button" aria-pressed="false">☾ DARK MODE</button>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section id="origin" class="lt">
+  <div class="cap">★ MEANWHILE AT SWAMINARAYAN UNIVERSITY, KALOL: A CODER WAKES UP FAST! ★</div>
+  <div class="g12" style="align-items:stretch">
+    <div class="c5 box cvr">
+      <div class="cvh"><span>95¢ <em>· NO. 1</em></span><span>THE SPEEDY EXPLORER!</span></div>
+      <div class="logo"><h1>KAIZER</h1><span>THE VIBE CODER WHO TRIES EVERYTHING!</span></div>
+      <div class="art">
+        <span class="t">ISSUE #01: THE ORIGIN</span>
+        <svg viewBox="0 0 300 190" fill="none" aria-hidden="true"><circle cx="150" cy="95" r="72" stroke="#00D2F0" stroke-width="2" stroke-dasharray="4 3" fill="#111116" fill-opacity=".85"/><circle cx="150" cy="95" r="54" stroke="#FFD000" stroke-width="3"/><polygon points="150,44 166,95 150,88 134,95" fill="#E23636" stroke="#fff" stroke-width="2"/><polygon points="150,146 134,95 150,102 166,95" fill="#fff"/><polygon points="176,52 148,98 164,98 138,142 196,86 174,86" fill="#FFD000" stroke="#111116" stroke-width="2.5"/><path d="M8 60H70M4 95H60M10 130H70M230 60H292M240 95H296M230 130H290" stroke="#00D2F0" stroke-width="2"/></svg>
+        <div class="ides"><span>VS CODE</span><span>QODER</span><span>KIRO</span><span>OPENCODE</span><span>ANTIGRAVITY</span><span>KAIZER</span><span>BLACKBOX</span></div>
+      </div>
+      <div class="cvf mo"><div class="bcode" aria-hidden="true"></div><span>FIRST PRINTING</span><b>COLLECTOR'S EDITION</b></div>
+    </div>
+    <div class="c7" style="display:flex;flex-direction:column;gap:22px">
+      <div class="box">
+        <span class="cap" style="font-size:20px">PERSONNEL ARCHIVE: CODENAME KAIZER</span>
+        <h2 class="nm">KAIZER</h2>
+        <div class="chips"><span class="chip" style="background:var(--ink);color:#fff">CODENAME: KAIZER</span><span class="chip" style="background:var(--cyan)">ROLE: VIBE CODER</span><span class="chip" style="background:var(--gold)">BASE: SWAMINARAYAN UNIV., KALOL</span></div>
+        <div class="bub">"I explore every tool I can find, learn fast, and ship fast. One project, one gold medal, and I'm only getting started!"</div>
+        <div class="btns"><a class="btn" href="#missions">READ MISSIONS</a><a class="btn y" href="#signal">SEND HERO SIGNAL</a></div>
+      </div>
+      <div class="stats">
+        <div class="st"><div>EXPLORER</div><b>7 IDEs</b><span>vibe coding tools tried</span></div>
+        <div class="st"><div>VICTORY</div><b>1 GOLD</b><span>medal + certificate</span></div>
+        <div class="st"><div>ROSTER</div><b>6 LANGS</b><span>C to SQL</span></div>
+      </div>
+      <div class="sfx mo"><b>"ZOOM!"</b><span>Curious first. Fast always.</span><b>"SHWIP!"</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- POWER GRID -->
+<section id="grid" class="lt">
+  <h2 class="sec"><small>OFFICIAL HANDBOOK OF KAIZER COMICS</small>THE POWER GRID</h2>
+  <div class="g12">
+    <div class="c8 box">
+      <span class="cap">CORE POWERS</span>
+      <div class="row"><div class="h"><span>1. EXPLORATION (IDES TRIED)</span><span class="tag">7 OF 7 SLOTS</span></div>
+        <div class="seg c" style="grid-template-columns:repeat(7,1fr)"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p>VS Code, Qoder, Kiro, OpenCode, Antigravity, Kaizer and Blackbox. Kaizer tries a new tool the moment it appears.</p></div>
+      <div class="row"><div class="h"><span>2. LANGUAGE ROSTER</span><span class="tag">5 USED + 1 NEW</span></div>
+        <div class="seg" style="grid-template-columns:repeat(6,1fr)"><i></i><i></i><i></i><i></i><i></i><i class="d"></i></div>
+        <p>C, C++, Python, Java and Kotlin are already in the history. SQL is the sixth slot, loading now.</p></div>
+      <div class="row"><div class="h"><span>3. TEAM VICTORIES</span><span class="tag" style="background:var(--gold);color:var(--ink)">1 OF 1 WON</span></div>
+        <div class="seg y" style="grid-template-columns:1fr"><i></i></div>
+        <p>E-Learning Hub with Velocity Executors won a gold medal and a certificate.</p></div>
+      <div class="row" style="margin:0"><div class="h"><span>4. SPEED FORCE</span><span class="tag" style="background:var(--cyan);color:var(--ink)">HABIT, NOT A SKILL</span></div>
+        <p>Explores fast, learns fast, ships fast. Speed shows up in everything Kaizer does.</p></div>
+    </div>
+    <div class="c4" style="display:flex;flex-direction:column;gap:20px">
+      <div class="box cr">
+        <span class="cap" style="font-size:18px">ARSENAL</span>
+        <div class="chips" style="margin-bottom:14px"><span class="chip">VS CODE</span><span class="chip">QODER</span><span class="chip">KIRO</span><span class="chip">OPENCODE</span><span class="chip">ANTIGRAVITY</span><span class="chip">KAIZER</span><span class="chip">BLACKBOX</span></div>
+        <div class="chips"><span class="chip lang">C <em>COMEBACK</em></span><span class="chip lang">C++ <em>COMEBACK</em></span><span class="chip lang">PYTHON <em>COMEBACK</em></span><span class="chip lang">JAVA <em>COMEBACK</em></span><span class="chip lang">KOTLIN <em>COMEBACK</em></span><span class="chip lang">SQL <em class="n">NEW!</em></span></div>
+        <div class="stamp"><b>EXPLORE FAST. SHIP FAST.</b><span>NEW TOOLS WELCOME</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSIONS -->
+<section id="missions" class="lt">
+  <div class="cap">ACT I: DECLASSIFIED MISSIONS</div>
+  <div class="g12" style="align-items:stretch">
+    <div class="c8 box cr case">
+      <div class="burst">GOLD MEDAL!</div>
+      <span class="chip" style="background:var(--gold)">CASE FILE #001 // GOLD-MEDAL PROJECT</span>
+      <h3 style="margin-top:12px">OPERATION: E-LEARNING HUB</h3>
+      <p>An e-learning platform built by team Velocity Executors at Swaminarayan University, Kalol. The team built it with vibe coding in the Qoder IDE, and it earned a gold medal and a certificate.</p>
+      <div class="ops"><div><small>Squad</small><b>VELOCITY EXECUTORS</b></div><div><small>Weapon</small><b>QODER IDE</b></div><div><small>Result</small><b>GOLD + CERTIFICATE</b></div></div>
+      <div class="chips"><span class="chip">E-LEARNING</span><span class="chip">VIBE CODING</span><span class="chip">TEAMWORK</span></div>
+    </div>
+    <div class="c4 box case">
+      <span class="chip" style="background:var(--cyan)">CASE FILE #002 // IN PROGRESS</span>
+      <h3 style="margin-top:12px;color:var(--red)">OPERATION: COMEBACK</h3>
+      <p>Academics pulled Kaizer away from C, C++, Python, Java and Kotlin. Now Kaizer is restarting all five and adding SQL as a brand new power.</p>
+      <div class="big" style="margin-top:14px">6 LANGS<br>LOADING…</div>
+    </div>
+    <div class="c12 box cr case">
+      <div class="g12" style="align-items:center">
+        <div class="c7">
+          <span class="chip" style="background:var(--gold)">CASE FILE #003 // THE EXPLORER'S HABIT</span>
+          <h3 style="margin-top:12px">7 IDEs, ZERO FEAR</h3>
+          <p style="margin:0">Kaizer doesn't stick to one editor. Kaizer has vibe coded in VS Code, Qoder, Kiro, OpenCode, Antigravity, Kaizer and Blackbox, comparing how each one builds, so Kaizer can pick the fastest path for every project.</p>
+        </div>
+        <div class="c5 box" style="text-align:center;box-shadow:4px 4px 0 var(--sh)"><div class="big">7 TOOLS!</div><div class="cap" style="font-size:18px;margin:10px 0 0;transform:rotate(1deg)">"CURIOUS &amp; FAST!"</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CANON -->
+<section id="canon" class="lt">
+  <div class="tl"><small>CHRONOLOGY OF CANONICAL ERAS</small><h2 style="margin-top:8px">THE CANON TIMELINE</h2></div>
+  <div class="ph">
+    <div class="box"><span class="lab">PHASE I</span><h3>THE FIRST LINES</h3>
+      <p>Kaizer picked up C, C++, Python, Java and Kotlin and built with each of them.</p>
+      <div class="ms"><b>★ KEY MILESTONE</b>Five languages practiced before academics took priority.</div></div>
+    <div class="box cr"><span class="lab">PHASE II</span><h3>THE GOLD RUN</h3>
+      <p>With Velocity Executors, Kaizer built E-Learning Hub using vibe coding in Qoder at Swaminarayan University, Kalol.</p>
+      <div class="ms"><b>★ KEY MILESTONE</b>Gold medal and certificate.</div></div>
+    <div class="box"><span class="lab">PHASE III</span><h3>THE COMEBACK</h3>
+      <p>Restarting the old languages, learning SQL from zero, and trying every new vibe coding tool that shows up.</p>
+      <div class="ms"><b>★ CURRENT STATUS</b>Learning fast, exploring faster.</div></div>
+  </div>
+</section>
+
+<!-- DARK: CYBERSECURITY -->
+<section id="d-origin" class="dk">
+  <div class="cap">★ CLASSIFIED: A CYBERSECURITY INTERN ENTERS THE GRID! ★</div>
+  <div class="g12" style="align-items:stretch">
+    <div class="c5 box cvr">
+      <div class="cvh"><span>95¢ <em>· NO. 1</em></span><span>THE RED TEAM RISING!</span></div>
+      <div class="logo"><h1>VOID</h1><span>CYBERSECURITY INTERN. FUTURE RED TEAMER!</span></div>
+      <div class="art">
+        <span class="t">ISSUE #01: THE DARK FILE</span>
+        <svg viewBox="0 0 300 190" fill="none" aria-hidden="true"><circle cx="150" cy="95" r="72" stroke="#00D2F0" stroke-width="2" stroke-dasharray="4 3" fill="#111116" fill-opacity=".85"/><path d="M150 40L200 58V100C200 128 178 146 150 156C122 146 100 128 100 100V58Z" fill="#E23636" stroke="#fff" stroke-width="3"/><rect x="134" y="92" width="32" height="26" fill="#FFD000" stroke="#111116" stroke-width="2.5"/><path d="M140 92V82a10 10 0 0 1 20 0V92" stroke="#111116" stroke-width="4"/><circle cx="150" cy="106" r="3.5" fill="#111116"/><path d="M150 8V34M150 156V182M6 95H68M232 95H294" stroke="#00D2F0" stroke-width="2"/></svg>
+        <div class="ides"><span>INTERN</span><span>RED TEAM: TARGET</span><span>WHITE HAT</span><span>ETHICAL ONLY</span></div>
+      </div>
+      <div class="cvf mo"><div class="bcode" aria-hidden="true"></div><span>CLASSIFIED PRINTING</span><b>EYES ONLY</b></div>
+    </div>
+    <div class="c7" style="display:flex;flex-direction:column;gap:22px">
+      <div class="box">
+        <span class="cap" style="font-size:20px">PERSONNEL ARCHIVE: CODENAME VOID</span>
+        <h2 class="nm">VOID</h2>
+        <div class="chips"><span class="chip" style="background:var(--ink);color:#fff">ROLE: CYBERSECURITY INTERN</span><span class="chip" style="background:var(--red);color:#fff">GOAL: RED TEAM</span><span class="chip" style="background:var(--cyan)">STATUS: LEARNING FAST</span></div>
+        <div class="bub">"I'm a cybersecurity intern today. My mission is a seat on the Red Team, and I'm training my way there, fast!"</div>
+        <div class="btns"><a class="btn" href="#d-missions">READ THE MISSION</a><a class="btn y" href="#signal">SEND HERO SIGNAL</a></div>
+      </div>
+      <div class="stats">
+        <div class="st"><div>CURRENT</div><b>INTERN</b><span>cybersecurity role</span></div>
+        <div class="st"><div>TARGET</div><b>RED TEAM</b><span>the next rank</span></div>
+        <div class="st"><div>CODE</div><b>WHITE HAT</b><span>ethical only</span></div>
+      </div>
+      <div class="box term mo">
+        <div><span class="p">void@dark:~$</span> whoami</div><div>void</div>
+        <div><span class="p">void@dark:~$</span> role</div><div>cybersecurity intern</div>
+        <div><span class="p">void@dark:~$</span> goal</div><div>join the red team</div>
+        <div><span class="p">void@dark:~$</span> ethics --mode</div><div>white-hat only <span class="cur"></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d-grid" class="dk">
+  <h2 class="sec"><small>CLASSIFIED HANDBOOK OF VOID COMICS</small>THE THREAT GRID</h2>
+  <div class="g12">
+    <div class="c8 box">
+      <span class="cap">CORE MISSIONS</span>
+      <div class="row"><div class="h"><span>1. THE CLIMB TO RED TEAM</span><span class="tag">STEP 1 OF 4</span></div>
+        <div class="seg" style="grid-template-columns:repeat(4,1fr)"><i></i><i class="d"></i><i class="d"></i><i class="d"></i></div>
+        <p>Intern (now), then training labs, then hands-on practice, then a seat on the Red Team.</p></div>
+      <div class="row"><div class="h"><span>2. TRAINING QUEUE</span><span class="tag" style="background:var(--cyan);color:var(--ink)">6 QUEUED</span></div>
+        <div class="seg" style="grid-template-columns:repeat(6,1fr)"><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i><i class="d"></i></div>
+        <p>Networking basics, Linux, web app security, secure coding, SQL injection defense and crypto basics.</p></div>
+      <div class="row" style="margin:0"><div class="h"><span>3. CURIOSITY &amp; SPEED</span><span class="tag" style="background:var(--gold);color:var(--ink)">HABIT</span></div>
+        <p>Void explores new tools and learns fast. That habit now points at security.</p></div>
+    </div>
+    <div class="c4 box cr">
+      <span class="cap" style="font-size:18px">TRAINING QUEUE</span>
+      <div class="chips"><span class="chip lang">NETWORKING <em>QUEUED</em></span><span class="chip lang">LINUX <em>QUEUED</em></span><span class="chip lang">WEB APP SECURITY <em>QUEUED</em></span><span class="chip lang">SECURE CODING <em>QUEUED</em></span><span class="chip lang">SQL INJECTION DEFENSE <em>QUEUED</em></span><span class="chip lang">CRYPTO BASICS <em>QUEUED</em></span></div>
+      <div class="stamp"><b>ETHICAL. LEGAL. RELENTLESS.</b><span>WHITE-HAT ONLY</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="d-missions" class="dk">
+  <div class="cap">ACT I: CLASSIFIED MISSIONS</div>
+  <div class="g12" style="align-items:stretch">
+    <div class="c8 box cr case">
+      <div class="burst">CURRENT MISSION!</div>
+      <span class="chip" style="background:var(--gold)">CASE FILE #001 // ACTIVE</span>
+      <h3 style="margin-top:12px">OPERATION: CYBER INTERN</h3>
+      <p>Void is a cybersecurity intern, learning how organizations find and fix weaknesses while sticking to a strict white-hat code.</p>
+      <div class="ops"><div><small>Rank</small><b>INTERN</b></div><div><small>Goal</small><b>RED TEAM</b></div><div><small>Code</small><b>WHITE HAT</b></div></div>
+      <div class="chips"><span class="chip">CYBERSECURITY</span><span class="chip">INTERNSHIP</span><span class="chip">ETHICAL</span></div>
+    </div>
+    <div class="c4 box case">
+      <span class="chip" style="background:var(--cyan)">CASE FILE #002 // THE GOAL</span>
+      <h3 style="margin-top:12px;color:var(--red)">OPERATION: RED TEAM</h3>
+      <p>A Red Team plays the attacker, with permission, so organizations can fix weaknesses before real attackers find them. That's where Void is headed.</p>
+      <div class="big" style="margin-top:14px">NEXT RANK:<br>RED TEAM</div>
+    </div>
+    <div class="c12 box cr case">
+      <span class="chip" style="background:var(--gold)">CASE FILE #003 // THE RULES</span>
+      <h3 style="margin:12px 0">THE CODE OF VOID</h3>
+      <div class="rl">
+        <div><b>RULE 1</b>Test only what I own or have permission to test.</div>
+        <div><b>RULE 2</b>Practice in labs and legal sandboxes.</div>
+        <div><b>RULE 3</b>Report weaknesses. Never exploit them.</div>
+        <div><b>RULE 4</b>Ship secure by default.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="d-canon" class="dk">
+  <div class="tl"><small>CHRONOLOGY OF THE VOID FILES</small><h2 style="margin-top:8px">THE DARK CANON</h2></div>
+  <div class="ph">
+    <div class="box"><span class="lab">NOW</span><h3>THE INTERN</h3>
+      <p>Void is learning cybersecurity as an intern and following a strict white-hat code.</p>
+      <div class="ms"><b>★ CURRENT STATUS</b>Cybersecurity intern.</div></div>
+    <div class="box cr"><span class="lab">NEXT</span><h3>THE TRAINING ARC</h3>
+      <p>Labs, legal sandboxes and the six-topic training queue, one chapter at a time.</p>
+      <div class="ms"><b>★ NEXT MILESTONE</b>Work through the training queue.</div></div>
+    <div class="box"><span class="lab">GOAL</span><h3>THE RED TEAM</h3>
+      <p>Play the attacker with permission, and help organizations fix weaknesses first.</p>
+      <div class="ms"><b>★ TARGET</b>Join a Red Team.</div></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="signal">
+  <div class="box">
+    <div class="cap">PRIORITY TRANSMISSION // ACTIVATING HERO SIGNAL</div>
+    <div class="g12">
+      <div class="c5">
+        <h2 style="font-size:clamp(40px,6vw,58px);color:var(--red);text-shadow:2px 2px 0 var(--tsh);margin-bottom:12px"><span class="lt">SUMMON KAIZER!</span><span class="dk">SUMMON VOID!</span></h2>
+        <p><span class="lt">Have a project, a hackathon, or a team that needs a fast-moving explorer? Beam a message straight to Kaizer.</span><span class="dk">Hiring cybersecurity interns, building a Red Team, or sharing labs and mentorship? Beam a message straight to Void.</span></p>
+        <a class="lnk" href="mailto:habibkhan042006@gmail.com">✉ habibkhan042006@gmail.com</a>
+        <a class="lnk" href="https://github.com/voidxv111" target="_blank" rel="noopener">⌥ github.com/voidxv111</a>
+        <a class="lnk" href="https://www.linkedin.com/search/results/people/?keywords=Void%20Khan" target="_blank" rel="noopener">in LinkedIn profile</a>
+      </div>
+      <form class="c7 box cr frm" id="f" style="box-shadow:6px 6px 0 var(--sh)">
+        <label>1. YOUR CODENAME<input id="fn" required placeholder="Agent name or team"></label>
+        <label>2. YOUR EMAIL<input id="fe" type="email" required placeholder="you@example.com"></label>
+        <label>3. MISSION BRIEF<textarea id="fm" rows="4" required placeholder="Tell Void about the mission…"></textarea></label>
+        <button class="btn" type="submit">DISPATCH SIGNAL</button>
+        <div class="toast" id="t"><b>POW!</b>Your email app is opening with the message ready to send.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="ft mo"><div><b>TO BE CONTINUED!</b><span class="lt">© KAIZER</span><span class="dk">© VOID</span></div><span>ORIGINAL COMIC-STYLE PORTFOLIO • ISSUE #1</span></div></footer>
+
+<script>
+document.getElementById("f").addEventListener("submit",function(e){
+  e.preventDefault();
+  var n=fn.value,m=fe.value,b=fm.value;
+  var body=b+"\n\n— "+n+" ("+m+")";
+  document.getElementById("t").classList.add("on");
+  location.href="mailto:habibkhan042006@gmail.com?subject="+encodeURIComponent("Hero Signal from "+n)+"&body="+encodeURIComponent(body);
+});
+var links=[].slice.call(document.querySelectorAll("nav a"));
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==="#"+e.target.id)})}})},{rootMargin:"-40% 0px -55% 0px"});
+document.querySelectorAll("main section").forEach(function(s){io.observe(s)});
+
+var root=document.documentElement,mb=document.getElementById("mode");
+function setTheme(t,go){root.setAttribute("data-theme",t);mb.textContent=t==="dark"?"☀ LIGHT MODE":"☾ DARK MODE";mb.setAttribute("aria-pressed",t==="dark");
+try{localStorage.setItem("void-theme",t)}catch(e){}
+document.title=t==="dark"?"VOID — Cybersecurity":"KAIZER — Portfolio";if(go){window.scrollTo({top:0,behavior:"smooth"})}}
+mb.addEventListener("click",function(){setTheme(root.getAttribute("data-theme")==="dark"?"light":"dark",true)});
+var sv=null;try{sv=localStorage.getItem("void-theme")}catch(e){}
+setTheme(sv==="dark"?"dark":"light",false);
+</script>
+</body>
+</html>
